@@ -1,6 +1,6 @@
 library(tidyverse)
 
-read.csv('data/raw/Mali/NBS_research_data/SPARCO_MALI_NBS_DATA/NewBornScreening_DATA_brutes_2024-01-17_1143.csv', sep=';') %>% 
+read.csv('data/raw/Mali/NBS_research_data/SPARCO_MALI_NBS_DATA/NewBornScreening_DATA_brutes_2024-01-17_1143.csv') %>% 
 	as_tibble() -> data_ml
 
 data_ml %>%
@@ -16,4 +16,4 @@ data_ml %>%
 		hplc_results,
 		add_molecula_test_results) -> data_ml_clean
 
-write.csv(data_ml_clean, 'data/clean/mali-clean.csv')
+write.csv(data_ml_clean, 'data/clean/mali-clean.csv', row.names=FALSE)

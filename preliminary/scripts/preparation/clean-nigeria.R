@@ -52,4 +52,4 @@ data_ng %>%
 		results_hplc,
 		results_mol) -> data_ng_clean
 
-write.csv(data_ng_clean, 'data/clean/nigeria-clean.csv')
+write.csv(data_ng_clean, 'data/clean/nigeria-clean.csv', row.names=FALSE)

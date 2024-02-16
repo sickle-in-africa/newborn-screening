@@ -17,4 +17,4 @@ data_ug %>%
 		IEF.Results,
 		Additional.molecular.test.results) -> data_ug_clean
 
-write.csv(data_ug_clean, 'data/clean/uganda-clean.csv')
+write.csv(data_ug_clean, 'data/clean/uganda-clean.csv', row.names=FALSE)

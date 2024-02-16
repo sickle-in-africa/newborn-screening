@@ -49,4 +49,4 @@ data_tz %>%
 		dbspoct_test_results,
 		ief_test_results) -> data_tz_clean
 
-write.csv(data_tz_clean, 'data/clean/tanzania-clean.csv')
+write.csv(data_tz_clean, 'data/clean/tanzania-clean.csv', row.names=FALSE)
