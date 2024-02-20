@@ -1,9 +1,13 @@
-library(tidyverse)
+#!/usr/bin/env Rscript
+suppressMessages(library(tidyverse))
 
 read.csv('data/raw/Nigeria/NBS_research_data/NBSPROJECT_DATA_2023-12-18_1524.csv') %>% 
 	as_tibble() -> data_ng
 
-uath <- c('uath', 'nbs/fct/uath')
+gwar <- c("NBS/FCT/GWA")
+giri <- c("GIRI", "NBS/FCT/GIRI", "GIRIPHC")
+paik <- c("NBS/FCT/PAIKO")
+uath <- c("NBS/FCT/UATH")
 
 AA_poct <- c('1')
 AS_poct <- c('2')
@@ -17,13 +21,16 @@ FAC_ief <- c('7')
 data_ng %>%
 	mutate(
 		participant_id = record_id,
-		facility_id = toupper(str_trim(facility_id_screening)),
+		facility_id = toupper(str_replace_all(facility_id_screening," ", "")),
 		results_poct = as.character(results_poct),
 		results_dbs = as.character(results_2),
 		results_ief = as.character(results_ief),
-		site_name = case_match(site_name,
-			uath ~ 'uath',
-			.default=site_name),
+		facility_id = case_match(facility_id,
+			gwar ~ 'GWAR',
+			giri ~ 'GIRI',
+			paik ~ 'PAIK',
+			uath ~ 'UATH',
+			.default=facility_id),
 		country = 'nigeria',
 		results_poct = case_match(results_poct,
 			AA_poct ~ 'AA',

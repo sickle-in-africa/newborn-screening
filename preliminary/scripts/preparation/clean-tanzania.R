@@ -1,4 +1,5 @@
-library(tidyverse)
+#!/usr/bin/env Rscript
+suppressMessages(library(tidyverse))
 
 read.csv('data/raw/Tanzania/NBS_research_data/NBS_Tanzania_2024_01_18/NBSProject_DATA_2024-01-18.csv') %>%
 	as_tibble() -> data_tz

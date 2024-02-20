@@ -1,4 +1,5 @@
-library(tidyverse)
+#!/usr/bin/env Rscript
+suppressMessages(library(tidyverse))
 
 read.csv('data/raw/Uganda/NBS_research_data/NewBornScreening-UGANDA_DATA_2024-01-30_1539.csv') %>%
 	filter(Event.Name=='Event 1 (Arm 1: Arm 1_Guardians)') %>%
@@ -6,6 +7,7 @@ read.csv('data/raw/Uganda/NBS_research_data/NewBornScreening-UGANDA_DATA_2024-01
 
 data_ug %>%
 	mutate(
+		Facility.ID = 'LHHR',
 		country='uganda') %>%
 	mutate(across(where(is.character), ~ na_if(.,""))) %>%
 	select(Study.participant.ID,

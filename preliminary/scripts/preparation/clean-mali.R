@@ -1,11 +1,13 @@
-library(tidyverse)
+#!/usr/bin/env Rscript
+suppressMessages(library(tidyverse))
 
 read.csv('data/raw/Mali/NBS_research_data/SPARCO_MALI_NBS_DATA/NewBornScreening_DATA_brutes_2024-01-17_1143.csv') %>% 
 	as_tibble() -> data_ml
 
 data_ml %>%
 	mutate(
-		country='mali') %>%
+		country='mali',
+		facility_id_screening = str_replace(facility_id_screening, ' ', '')) %>%
 	select(
 		participant_id,
 		facility_id_screening,

@@ -1,4 +1,5 @@
-library(tidyverse)
+#!/usr/bin/env Rscript
+suppressMessages(library(tidyverse))
 
 read.csv('data/clean/nigeria-clean.csv') %>% as_tibble() -> data_ng
 
@@ -20,7 +21,12 @@ data_ng %>%
 		gs_test_type = 'ief',
 		.keep = 'unused') %>%
 	select(
-		-results_hplc,
-		-results_mol) -> data_ng_standard
+		participant_id,
+		facility_id,
+		country,
+		result_poct,
+		result_dbs,
+		result_gs,
+		gs_test_type) -> data_ng_standard
 
 write.csv(data_ng_standard, 'data/standard/nigeria-standard.csv', row.names=FALSE)
