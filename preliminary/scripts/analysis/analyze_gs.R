@@ -50,5 +50,5 @@ for (genotype in genotype_levels) {
     bind_rows(result, get_prevalence_XX(table_XX, genotype)) -> result
 }
 
-write.csv(table_all, 'media/analysis/genotype-frequencies-gs.csv', row.names=FALSE)
-write.csv(result, 'media/analysis/genotype-prevalences-gs.csv', row.names=FALSE)
+write.csv(table_all, 'results/analysis/genotype-frequencies-gs.csv', row.names=FALSE)
+write.csv(result, 'results/analysis/genotype-prevalences-gs.csv', row.names=FALSE)

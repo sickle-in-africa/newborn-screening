@@ -64,24 +64,28 @@ data_country %>%
         result_gs = factor(result_gs, levels=genotype_levels)) %>%
     select(result_poct, result_gs) %>%
     table() %>%
-    as_tibble() -> table_all
+    as_tibble() -> table_base
 
-get_table_XX(table_all, 'AA') -> table_AA
+get_table_XX(table_base, 'AA') -> table_AA
 
-get_table_XX(table_all, 'SS') -> table_SS
+get_table_XX(table_base, 'SS') -> table_SS
 
-get_table_XX(table_all, 'AS') -> table_AS
+get_table_XX(table_base, 'AS') -> table_AS
 
-get_table_XX(table_all, 'AC') -> table_AC
+get_table_XX(table_base, 'AC') -> table_AC
+
+table_all <- table_AA
+table_all$count <- table_AA$count + table_SS$count + table_AS$count + table_AC$count
 
 bind_rows(
     get_diagnostics_XX(table_AA, 'AA'),
     get_diagnostics_XX(table_SS, 'SS'),
     get_diagnostics_XX(table_AS, 'AS'),
-    get_diagnostics_XX(table_AC, 'AC')) -> result
+    get_diagnostics_XX(table_AC, 'AC'),
+    get_diagnostics_XX(table_all, 'all')) -> result
 
-write.csv(table_all, 'media/analysis/contingency-table-poct.csv', row.names=FALSE)
-write.csv(result, 'media/analysis/test-diagnostics-poct.csv', row.names=FALSE)
+write.csv(table_base, 'results/analysis/contingency-table-poct.csv', row.names=FALSE)
+write.csv(result, 'results/analysis/test-diagnostics-poct.csv', row.names=FALSE)
 
 
 
