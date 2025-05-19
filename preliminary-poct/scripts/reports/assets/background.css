@@ -1,0 +1,22 @@
+body {
+    /* background-image: url('https://linesteppers.com/tutorials/RMarkdown/img/BannerImage_TreeBlossoms_4470x3024.jpg'); */
+    background-image: url('background.png') !important;
+    background-repeat: no-repeat !important;
+    background-size: 100% !important;
+    background-size: auto !important;
+    text-align: center;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+  
+  div {
+    background-color: rgba(255, 255, 255, 0.35) !important;
+    padding: 0.25em;
+  }
+
+  div.main-container {
+    max-height: 800px !important;
+  }

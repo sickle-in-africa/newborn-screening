@@ -1,10 +1,15 @@
-# newborn-screening
+# Newborn Screening Study Code: HPLC and POCT
 
-A repository for the Newborn Screening study.
+This repository contains R code for performing analyses related to the SickleInAfrica **Newborn Screening Study**. The study evaluates the accuracy of POCT (Point-of-Care Testing) compared to the gold standard HPLC/IEF method across different sites. The code calculates key performance metrics, including sensitivity, specificity, positive predictive value (PPV), and negative predictive value (NPV).
 
-This project contains the complete data analysis pipeline used in the **Newborn Screening Study**, including preprocessing, cleaning, imputation, quality control, and diagnostic analysis scripts. The pipeline is written primarily in R, with additional shell and CSS scripts where applicable.
+---
 
 ## 📁 Repository Structure
+
+- **`HPLC/`**: Contains code for performance calculations, with HPLC/IEF as the gold standard.
+- **`POCT/`**: Contains code for performance calculations, with POCT as the gold standard.
+
+---
 
 ## 📊 Purpose
 
@@ -17,23 +22,29 @@ This repository supports the full lifecycle of newborn screening data analysis:
 
 ---
 
-## 🛠 Programming languages used
+## 📊 Key Metrics
 
-- **R** (95.5%) — primary language for data manipulation and analysis
-- **Shell** (2.4%) — auxiliary tasks and automation
-- **CSS** (2.1%) — styling of reports, if HTML outputs are used
-
----
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
+The following performance metrics are calculated as part of the study:
+1. **Sensitivity**: Proportion of true positives correctly identified by DBS/POCT.
+2. **Specificity**: Proportion of true negatives correctly identified by DBS/POCT.
+3. **Positive Predictive Value (PPV)**: Proportion of positive results by DBS/POCT that are true positives.
+4. **Negative Predictive Value (NPV)**: Proportion of negative results by DBS/POCT that are true negatives.
 
 ---
 
-## 📌 How to Use
+## 📋 Data Requirements
 
-1. Clone the repository:
+- **Input Data**: 
+  - Screening results for both HPLC and POCT.
+  - Site-specific data files in `.csv` or `.xlsx` format.
+- **Folder Structure**: Place input data in the appropriate `data/` subfolder.
+
+---
+
+## 🚀 How to Use
+
+1. Clone this repository:
    ```bash
-   git clone https://github.com/your-org/newborn-screening.git
-   cd newborn-screening/preliminary/scripts
+   git clone https://github.com/your-repo-link.git
+   cd newborn-screening-study
+
