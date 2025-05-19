@@ -31,12 +31,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## 👤 Maintainer
-
-Developed and maintained by **@jackmo375** and contributors to the Newborn Screening study team.
-
----
-
 ## 📌 How to Use
 
 1. Clone the repository:
