@@ -17,7 +17,7 @@ This repository supports the full lifecycle of newborn screening data analysis:
 
 ---
 
-## 🛠 Technologies Used
+## 🛠 Programming languages used
 
 - **R** (95.5%) — primary language for data manipulation and analysis
 - **Shell** (2.4%) — auxiliary tasks and automation
