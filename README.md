@@ -4,14 +4,14 @@ This repository contains R code for performing analyses related to the SickleInA
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 - **`HPLC/`**: Contains code for performance calculations, with HPLC/IEF as the gold standard.
 - **`POCT/`**: Contains code for performance calculations, with POCT as the gold standard.
 
 ---
 
-## 📊 Purpose
+## Purpose
 
 This repository supports the full lifecycle of newborn screening data analysis:
 - Ensuring **data integrity and completeness**
@@ -22,7 +22,7 @@ This repository supports the full lifecycle of newborn screening data analysis:
 
 ---
 
-## 📊 Key Metrics
+## Key Metrics
 
 The following performance metrics are calculated as part of the study:
 1. **Sensitivity**: Proportion of true positives correctly identified by DBS/POCT.
@@ -32,7 +32,7 @@ The following performance metrics are calculated as part of the study:
 
 ---
 
-## 📋 Data Requirements
+## Data Requirements
 
 - **Input Data**: 
   - Screening results for both HPLC and POCT.
@@ -41,10 +41,14 @@ The following performance metrics are calculated as part of the study:
 
 ---
 
-## 🚀 How to Use
+## How to Use
 
 1. Clone this repository:
    ```bash
    git clone https://github.com/your-repo-link.git
    cd newborn-screening-study
 
+---
+
+## Detailed description of analysis approach
+  Report: https://wilson-afk.github.io/newborn-docs/
