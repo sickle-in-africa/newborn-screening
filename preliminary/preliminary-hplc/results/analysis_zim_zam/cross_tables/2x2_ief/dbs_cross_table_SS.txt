@@ -1,0 +1,3 @@
+test_result	not_SS	SS
+SS	1	0
+not_SS	198	1

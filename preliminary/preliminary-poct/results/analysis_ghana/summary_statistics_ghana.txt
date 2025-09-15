@@ -1,0 +1,46 @@
+Summary Statistics: Ghana
+
+
+
+Row count: 101
+
+Column count: 82
+
+
+
+Table of 'sex_newborn':
+
+       Female   Male 
+     1     55     45 
+
+
+
+Table of 'ief_test_results':
+
+                                                AF - NO abnormal hemoglobin 
+                                    2                                     5 
+          FA - NO abnormal hemoglobin                    FAC - C trait (AC) 
+                                   66                                    11 
+         FAS - Sickle cell trait (AS) FSC - Sickle cell disease SC (SCD-SC) 
+                                   14                                     2 
+                                Other 
+                                    1 
+
+
+
+Table of 'hplc_results':
+< table of extent 0 >
+
+
+
+Table of 'dbspoct_test_results':
+
+                         AA            AS Indeterminate            SC 
+            2            56            39             3             1 
+
+
+
+Table of 'std_poct_results':
+
+           AA            AC            AS Indeterminate            SS 
+           75             6            17             2             1 

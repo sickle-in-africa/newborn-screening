@@ -1,0 +1,3 @@
+test_result	AA	not_AA
+AA	792	8
+not_AA	26	23

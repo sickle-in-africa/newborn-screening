@@ -1,0 +1,17 @@
+Cross Table: result_dbs vs result_poct
+         
+          Non-SCD SCD
+  Non-SCD     566   9
+  SCD          37  90
+
+McNemar Test Results:
+
+	McNemar's Chi-squared test with continuity correction
+
+data:  result_table
+McNemar's chi-squared = 15.848, df = 1, p-value = 6.865e-05
+
+
+Confidence Intervals for the Odds Ratio:
+Odds Ratio:  4.111111 
+95% Confidence Interval: ( 1.984238 ,  8.517748 )

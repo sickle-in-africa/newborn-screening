@@ -1,0 +1,4 @@
+test_result	AS	NA	not_AS
+AS	4	1	0
+not_AS	1	6	89
+NA	0	2	0

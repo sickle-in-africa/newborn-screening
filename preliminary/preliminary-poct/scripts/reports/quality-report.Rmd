@@ -1,0 +1,128 @@
+---
+title: "[SickleInAfrica](https://www.sickleinafrica.org/) Data Quality Report <img src=\"assets/logo.png\" style=\"float: right;\"/>"
+author: "Author: SaDACC Data Analysis Team"
+date: "Report generated on: `r Sys.Date()`"
+params:
+  input_filename:
+  output_directory:
+output: 
+    html_document:
+        toc: true
+        toc_float: true
+        toc_collapsed: false
+        toc_depth: 3
+        number_sections: true
+        theme: united
+
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.pos = 'h')
+```
+
+```{css toc-content, echo = FALSE}
+#TOC {
+  margin: 200px 20px 25px 20px;
+}
+
+.main-container {
+    margin-left: 200px;
+    margin-top: 50px;
+}
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, results="hide")
+knitr::opts_knit$set(root.dir = '../../')
+```
+
+```{r message=FALSE, echo = FALSE, prompt=FALSE, echo=FALSE, results="asis"}
+source('./scripts/quality-control/quality-module.R')
+```
+<br>
+```{r message=FALSE, echo = FALSE, prompt=FALSE, echo=FALSE, results="asis"}
+#input_filename <- 'data/standard/database-ready/sparco_tanzania_registry_nodate_database_ready.csv'
+import_data(params$input_filename) -> data
+list(
+	test_record_completeness(data),
+	test_column_completeness(data),
+	test_duplicates(data)) -> results
+merge_boxplot_data(results) -> boxplot_data
+get_composite_fivenum(results) -> total_fivenum
+
+```
+<br>
+
+# Summary
+
+```{r message=FALSE, comment="", prompt=FALSE, echo=FALSE, results="asis"}
+get_summary_table(data, total_fivenum) %>%
+  kbl() %>% 
+  kable_styling()
+```
+
+<br>
+
+# Quality Scores
+
+<br>
+
+```{r message=FALSE, comment="", prompt=FALSE, echo=FALSE, results="asis"}
+get_quality_scores(results) %>%
+  mutate(quality_score = round(quality_score, digits=0)) %>%
+  kbl() %>% 
+  kable_styling()
+```
+
+<br>
+
+```{r message=FALSE, comment="", prompt=FALSE, echo=FALSE, results="hide"}
+plot_quality_score_lollipop(results)
+```
+
+<br>
+
+```{r message=FALSE, comment="", prompt=FALSE, echo=FALSE, results="hide"}
+plot_quality_fivenum_boxes(boxplot_data)
+```
+
+<br>
+
+# Completeness
+<br>
+
+```{r message=FALSE, comment="", prompt=FALSE, echo=FALSE, results="asis"}
+data.frame(
+  label=c('number of records with missing values', 'number of columns with missing values'),
+  value=c(nrow(results[[1]]$queries), nrow(results[[2]]$queries))) %>%
+    kbl() %>% 
+    kable_styling()
+```
+
+```{r message=FALSE, comment="", prompt=FALSE, echo=FALSE, results="hide"}
+results[[1]]$plot
+```
+
+<br>
+
+```{r message=FALSE, comment="", prompt=FALSE, echo=FALSE, results="hide"}
+results[[2]]$plot
+```
+
+# Uniqueness
+```{r message=FALSE, comment="", prompt=FALSE, echo=FALSE, results="asis"}
+data.frame(label=c('number of duplicated records'), value=c(nrow(results[[3]]$queries))) %>%
+  kbl() %>% 
+  kable_styling()
+```
+
+```{r message=FALSE, comment="", prompt=FALSE, echo=FALSE, results="hide"}
+results[[3]]$plot
+```
+
+
+```{r message=FALSE, comment="", prompt=FALSE, echo=FALSE, results="hide"}
+results[[1]]$queries %>% write.csv(paste0(params$output_directory,'records_with_missing_values.csv'))
+results[[2]]$queries %>% write.csv(paste0(params$output_directory,'columns_with_missing_values.csv'))
+results[[3]]$queries %>% write.csv(paste0(params$output_directory,'duplicate_records.csv'))
+```

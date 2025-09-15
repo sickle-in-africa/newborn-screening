@@ -1,0 +1,3 @@
+test_result	SS	not_SS
+SS	7	1
+not_SS	4	690

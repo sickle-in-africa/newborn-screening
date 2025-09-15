@@ -1,0 +1,62 @@
+#!/usr/bin/env Rscript
+suppressMessages(library(tidyverse))
+
+read.csv('data/nigeria/raw/nigeria_phase_2.csv') %>% 
+	as_tibble() -> data_ng
+
+gwar <- c("NBS/FCT/GWA")
+giri <- c("GIRI", "NBS/FCT/GIRI", "GIRIPHC")
+paik <- c("NBS/FCT/PAIKO")
+uath <- c("NBS/FCT/UATH")
+
+AA_poct <- c('1')
+AS_poct <- c('2')
+SS_poct <- c('4')
+
+FA_ief <- c('1')
+FS_ief <- c('3')
+FAS_ief <- c('6')
+FAC_ief <- c('7')
+
+data_ng %>%
+	mutate(
+		participant_id = record_id,
+		facility_id = toupper(str_replace_all(facility_id_screening," ", "")),
+		results_poct = as.character(results_poct),
+		results_dbs = as.character(results_2),
+		results_ief = as.character(results_ief),
+		facility_id = case_match(facility_id,
+			gwar ~ 'GWAR',
+			giri ~ 'GIRI',
+			paik ~ 'PAIK',
+			uath ~ 'UATH',
+			.default=facility_id),
+		country = 'nigeria',
+		results_poct = case_match(results_poct,
+			AA_poct ~ 'AA',
+			AS_poct ~ 'AS',
+			SS_poct ~ 'SS',
+			.default = results_poct),
+		results_dbs = case_match(results_dbs,
+			AA_poct ~ 'AA',
+			AS_poct ~ 'AS',
+			SS_poct ~ 'SS',
+			.default = results_dbs),
+		results_ief = case_match(results_ief,
+			FA_ief ~ 'AA',
+			FS_ief ~ 'AA',
+			FAS_ief ~ 'AS',
+			FAC_ief ~ 'AC',
+			.default = results_ief),
+		results_mol = results_4) %>%
+	select(
+		participant_id,
+		facility_id,
+		country,
+		results_poct,
+		results_dbs,
+		results_ief,
+		results_hplc,
+		results_mol) -> data_ng_clean
+
+write.csv(data_ng_clean, 'data/nigeria/clean/nigeria-clean.csv', row.names=FALSE)

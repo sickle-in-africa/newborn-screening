@@ -1,0 +1,2 @@
+test_result	SS	not_SS
+not_SS	2	99

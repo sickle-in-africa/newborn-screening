@@ -1,0 +1,4 @@
+test_result	AA	not_AA	NA
+AA	49	8	1
+not_AA	26	12	1
+NA	0	4	0

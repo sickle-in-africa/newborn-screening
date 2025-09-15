@@ -1,0 +1,23 @@
+Summary Statistics: results/analysis_ghana/summary_statistics_ghana.txt
+Row count: 999
+Column count: 7
+Table of 'sex_newborn':
+Column sex_newborn not found in dataset.
+Table of 'ief_test_results':
+
+   AA    AC    AS Other    SC 
+   71    11    14     1     2 
+Table of 'hplc_results':
+
+   AA    AC    AS Other    SC 
+   71    11    14     1     2 
+Table of 'dbspoct_test_results':
+
+           AA            AC            AS            CC Indeterminate 
+          801             6            81             2             7 
+           SC            SS 
+            3             5 
+Table of 'std_poct_results':
+
+           AA            AC            AS Indeterminate            SS 
+           75             6            17             2             1 

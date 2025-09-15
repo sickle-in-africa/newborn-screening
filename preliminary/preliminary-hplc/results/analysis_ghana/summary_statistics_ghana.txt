@@ -1,0 +1,31 @@
+Summary Statistics: Ghana
+
+Row count: 101
+
+Column count: 82
+
+Table of 'sex_newborn':
+
+       Female   Male 
+     1     55     45 
+
+Table of 'ief_test_results':
+
+         AA    AC    AS Other    SS 
+    2    71    11    14     1     2 
+
+Table of 'hplc_results':
+< table of extent 0 >
+
+Table of 'dbspoct_test_results':
+
+                         AA            AS Indeterminate            SC 
+            2            56            39             3             1 
+
+Table of 'std_poct_results':
+
+           AA            AC            AS Indeterminate            SS 
+           75             6            17             2             1 
+
+Average Age in Months: 0.2
+95% Confidence Interval: 0.12 to 0.28
