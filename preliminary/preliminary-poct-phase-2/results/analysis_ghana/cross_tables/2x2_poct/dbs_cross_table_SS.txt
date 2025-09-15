@@ -1,3 +1,0 @@
-test_result	SS	not_SS
-SS	5	0
-not_SS	6	838

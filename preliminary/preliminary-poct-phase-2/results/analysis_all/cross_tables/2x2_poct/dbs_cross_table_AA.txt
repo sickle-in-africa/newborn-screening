@@ -1,4 +1,0 @@
-test_result	AA	not_AA	NA
-AA	1432	8	1455
-not_AA	30	284	207
-NA	96	11	3

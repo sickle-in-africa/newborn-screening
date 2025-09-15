@@ -1,3 +1,0 @@
-test_result	not_SS
-SS	1
-not_SS	54

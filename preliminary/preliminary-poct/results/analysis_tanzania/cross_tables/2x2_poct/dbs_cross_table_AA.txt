@@ -1,3 +1,0 @@
-test_result	AA	not_AA	NA
-AA	77	3	1
-not_AA	5	13	0

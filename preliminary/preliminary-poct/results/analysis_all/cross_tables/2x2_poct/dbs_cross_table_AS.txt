@@ -1,4 +1,0 @@
-test_result	AS	not_AS	NA
-AS	81	35	2
-not_AS	11	558	8
-NA	0	4	3

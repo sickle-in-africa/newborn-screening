@@ -1,2 +1,0 @@
-test_result	not_SS
-not_SS	94

@@ -1,3 +1,0 @@
-test_result	AC	not_AC	NA
-not_AC	3	92	2
-NA	3	1	0

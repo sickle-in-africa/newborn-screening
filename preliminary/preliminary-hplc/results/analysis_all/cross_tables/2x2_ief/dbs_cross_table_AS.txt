@@ -1,3 +1,0 @@
-test_result	AS	not_AS
-AS	84	34
-not_AS	6	578

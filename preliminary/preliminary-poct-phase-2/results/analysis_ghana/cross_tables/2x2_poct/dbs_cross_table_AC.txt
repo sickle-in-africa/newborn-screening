@@ -1,3 +1,0 @@
-test_result	not_AC	AC
-AC	6	0
-not_AC	840	3

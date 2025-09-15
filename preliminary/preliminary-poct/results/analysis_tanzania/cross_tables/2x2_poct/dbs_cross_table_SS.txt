@@ -1,3 +1,0 @@
-test_result	not_SS	SS	NA
-SS	2	0	0
-not_SS	95	1	1

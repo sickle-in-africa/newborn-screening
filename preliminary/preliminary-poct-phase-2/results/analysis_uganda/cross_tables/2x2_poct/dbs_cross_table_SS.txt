@@ -1,3 +1,0 @@
-test_result	SS	not_SS
-SS	8	1
-not_SS	1	250
